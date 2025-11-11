@@ -25,10 +25,10 @@ static const struct adc_dt_spec adc_channels[] = {
 #define SAMPLE_INTERVAL_MS (1000 / SAMPLE_RATE_HZ)
 #define SAMPLE_COUNT 100
 
-void sample_adc_for_one_second(struct Measurement *buffer)
+void sample_adc_for_one_second(struct Measurement *buffer, uint16_t direction)
 {
     for (int i = 0; i < SAMPLE_COUNT; i++) {
-        buffer[i] = readADCValue();
+        buffer[i] = readADCValue(direction);
         //printk("Sample %d: x=%d, y=%d, z=%d\n", i, buffer[i].x, buffer[i].y, buffer[i].z);
         k_sleep(K_MSEC(SAMPLE_INTERVAL_MS));
     }
@@ -73,10 +73,11 @@ int initializeADC(void)
 
 }
 
-struct Measurement readADCValue(void)
+struct Measurement readADCValue(uint16_t direction)
 {
 	int16_t buf;
     struct Measurement m;
+    m.dir = direction;
     struct adc_sequence sequence = {
 	  .buffer = &buf,
 

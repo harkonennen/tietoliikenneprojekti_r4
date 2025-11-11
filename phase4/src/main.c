@@ -57,8 +57,8 @@ static volatile bool trigger_sampling = false;  // Flag to trigger one batch of 
 #define NOTIFY_INTERVAL 10000
 static bool app_button_state;
 static struct k_work adv_work;
-/* STEP 15 - Define the data you want to stream over Bluetooth LE */
-static uint32_t app_sensor_value = 100;
+static uint32_t app_sensor_direction = 0;	//Sensorin suunta
+
 
 static const struct bt_data ad[] = {
 	BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
@@ -90,14 +90,7 @@ static void recycled_cb(void)
 	printk("Connection object available from previous conn. Disconnect is complete!\n");
 	advertising_start();
 }
-/* STEP 16 - Define a function to simulate the data */
-static void simulate_data(void)
-{
-	app_sensor_value++;
-	if (app_sensor_value == 200) {
-		app_sensor_value = 100;
-	}
-}
+
 static void app_led_cb(bool led_state)
 {
 	dk_set_led(USER_LED, led_state);
@@ -119,7 +112,7 @@ void send_data_thread(void)
 			printk("Starting to collect 100 samples...\n");
 			
 			for (int i = 0; i < 100; i++) {
-				samples[i] = readADCValue();
+				samples[i] = readADCValue(app_sensor_direction);
 				/* small delay between ADC reads to avoid hogging CPU/ADC */
 				k_sleep(K_MSEC(5));
 			}
@@ -130,6 +123,8 @@ void send_data_thread(void)
 			for (int i = 0; i < 100; i++) {
 				int ret;
 				int retry = 0;
+
+				printk("Sending sample %d: dir=%u, x=%u, y=%u, z=%u\n", i, samples[i].dir, samples[i].x, samples[i].y, samples[i].z);
 
 				/* Try to send; retry briefly on transient errors like -EAGAIN/-ENOMEM */
 				do {
@@ -160,6 +155,14 @@ void send_data_thread(void)
 			}
 
 			printk("Finished sending 100 samples. Press Button 2 to collect another batch.\n");
+			
+			/* Increment direction after sending all samples */
+			app_sensor_direction++;
+			if (app_sensor_direction >= 6) {
+				app_sensor_direction = 0;
+			}
+			printk("Direction incremented to %u\n", app_sensor_direction);
+			
 			trigger_sampling = false;  // Reset the trigger
 		}
 
@@ -176,16 +179,27 @@ static struct my_lbs_cb app_callbacks = {
 static void button_changed(uint32_t button_state, uint32_t has_changed)
 {
 	if (has_changed & USER_BUTTON) {
+		/*
 		uint32_t user_button_state = button_state & USER_BUTTON;
-		/* STEP 6 - Send indication on a button press */
+		/* STEP 6 - Send indication on a button press
 		my_lbs_send_button_state_indicate(user_button_state);
 		app_button_state = user_button_state ? true : false;
+		*/
+		if (button_state & USER_BUTTON) {
+		app_sensor_direction = 0;
+		LOG_INF("Button 1 pressed, direction=%d", app_sensor_direction);
+		}
 	}
 
 	// Handle Button 2 press to trigger one batch of samples
 	if (has_changed & USER_BUTTON_2) {
 		if (button_state & USER_BUTTON_2) {  // Button 2 pressed
+			LOG_INF("Button pressed, 2 direction=%d", app_sensor_direction);
+			if (app_sensor_direction >= 6){
+				app_sensor_direction = 0;
+			}
 			trigger_sampling = true;  // Trigger one batch of samples
+			app_sensor_direction++;
 			printk("Triggered sampling of 100 measurements\n");
 		}
 	}
