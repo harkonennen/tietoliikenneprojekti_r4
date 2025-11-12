@@ -58,6 +58,7 @@ static volatile bool trigger_sampling = false;  // Flag to trigger one batch of 
 static bool app_button_state;
 static struct k_work adv_work;
 static uint32_t app_sensor_direction = 0;	//Sensorin suunta
+static int sample_amount = 10;
 
 
 static const struct bt_data ad[] = {
@@ -107,11 +108,11 @@ void send_data_thread(void)
 	while (1) {
 		if (trigger_sampling) {
 			/* Collect a burst of 100 samples */
-			struct Measurement samples[100];
+			struct Measurement samples[sample_amount];
 
 			printk("Starting to collect 100 samples...\n");
 			
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < sample_amount; i++) {
 				samples[i] = readADCValue(app_sensor_direction);
 				/* small delay between ADC reads to avoid hogging CPU/ADC */
 				k_sleep(K_MSEC(5));
@@ -120,7 +121,7 @@ void send_data_thread(void)
 			printk("Collected 100 samples. Sending notifications...\n");
 
 			/* Send each measurement at a controlled rate and handle back-pressure */
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < sample_amount; i++) {
 				int ret;
 				int retry = 0;
 
@@ -199,7 +200,6 @@ static void button_changed(uint32_t button_state, uint32_t has_changed)
 				app_sensor_direction = 0;
 			}
 			trigger_sampling = true;  // Trigger one batch of samples
-			app_sensor_direction++;
 			printk("Triggered sampling of 100 measurements\n");
 		}
 	}

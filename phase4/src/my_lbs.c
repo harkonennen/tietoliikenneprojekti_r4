@@ -150,13 +150,15 @@ int my_lbs_send_sensor_notify(const struct Measurement *samples)
 		return -EACCES;
 	}
 
-    uint8_t payload[6];
-    payload[0] = samples->x & 0xFF;
-    payload[1] = (samples->x >> 8) & 0xFF;
-    payload[2] = samples->y & 0xFF;
-    payload[3] = (samples->y >> 8) & 0xFF;
-    payload[4] = samples->z & 0xFF;
-    payload[5] = (samples->z >> 8) & 0xFF;
+    uint8_t payload[8];
+    payload[0] = samples->dir & 0xFF;
+    payload[1] = (samples->dir >> 8) & 0xFF;
+    payload[2] = samples->x & 0xFF;
+    payload[3] = (samples->x >> 8) & 0xFF;
+    payload[4] = samples->y & 0xFF;
+    payload[5] = (samples->y >> 8) & 0xFF;
+    payload[6] = samples->z & 0xFF;
+    payload[7] = (samples->z >> 8) & 0xFF;
 
 	return bt_gatt_notify(NULL, &my_lbs_svc.attrs[7], payload, sizeof(payload));
 }
