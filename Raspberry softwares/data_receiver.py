@@ -7,10 +7,9 @@ import sys
 # 1. BLE-DEVICE CONFIQS (NRF5340)
 # NRF5340:n MAC-address/UUID
 DEVICE_ADDRESS = "C7:2E:D6:BF:B5:B5" 
-# MYSENSOR Characteristic UUID, johon NRF5340 lähettää datan
+# MYSENSOR Characteristic UUID, where NRF5340 sends data
 CHAR_UUID = "00001526-1212-efde-1523-785feabcd123"
 
-# Datan pakkausmuoto C-koodin mukaisesti (struct FullMeasurement)
 # HHHH = 4 x uint16_t (dir, X, Y, Z - 2 byte each)
 STRUCT_FORMAT = '<HHHH' 
 EXPECTED_LENGTH = struct.calcsize(STRUCT_FORMAT)
@@ -24,7 +23,7 @@ DB_CONFIG = {
 }
 # SQL-data saving
 SQL_INSERT = "INSERT INTO rawdata (sensor_direction, sensorvalue_x, sensorvalue_y, sensorvalue_z) VALUES (%s, %s, %s, %s)"
-#SQL_INSERT = "INSERT INTO rawdata (groupid, sensorvalue_a, sensorvalue_b, sensorvalue_c, sensorvalue_f) VALUES (%s, %s, %s, %s, %s)"
+
 
 # Global database connetion
 db_connection = None
@@ -60,7 +59,7 @@ def notification_handler(sender: int, data: bytearray):
 
     try:
         # Extracting data: (uint16_t direction, uint16_t x, uint16_t y, uint16_t z)
-        direction, x_val, y_val, z_val = struct.unpack(STRUCT_FORMAT, data) 
+        direction, x_val, y_val, z_val = struct.unpack(STRUCT_FORMAT, data)
         
         # Adding values to database
         cursor = conn.cursor()
@@ -68,10 +67,10 @@ def notification_handler(sender: int, data: bytearray):
         cursor.execute(SQL_INSERT, data_to_save)
         conn.commit()
         cursor.close()
-        await asyncio.sleep(1)
                 
 
         print(f"Data saved: Dir={direction}, X={x_val}, Y={y_val}, Z={z_val}")
+        
 
         # Prints the extract values
         print(f"[{asyncio.get_event_loop().time():.2f}] Datavalues: ", end="")
@@ -116,7 +115,7 @@ async def run_ble_client(address: str, char_uuid: str):
         except Exception as e:
             # Other errors (timeout, Bleak-errors etc)
             print(f"CRITICAL: Unexpected error in Bleak-connection: {e}. Trying to reconnect again after 10 seconds...", file=sys.stderr)
-            await asyncio.sleep(10) 
+            await asyncio.sleep(10)
 
 
 async def main():
