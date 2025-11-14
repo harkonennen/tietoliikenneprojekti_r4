@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 }
 
 // Query
-$sql = "SELECT id, timestamp, sensor_direction, sensorvalue_x, sensorvalue_y, sensorvalue_z FROM rawdata ORDER BY timestamp DESC";
+$sql = "SELECT id, timestamp, sensor_direction, sensorvalue_x, sensorvalue_y, sensorvalue_z FROM rawdata ORDER BY id DESC";
 $result = $conn->query($sql);
 
 // Output

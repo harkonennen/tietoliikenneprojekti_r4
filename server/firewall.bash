@@ -20,6 +20,7 @@ iptables -F -t mangle
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A INPUT -s 192.168.0.0/24 -j ACCEPT # example how to allow whole IP network 192.168.0.xxx
 iptables -A INPUT -s 193.167.100.97 -j ACCEPT # DO NOT COMMENT OR MODIFY THIS. THIS IS BACKDOOR TO YOUR SERVER FROM students.oamk.fi
+#iptables -A INPUT -s 193.167.101.55 -j ACCEPT
 iptables -A INPUT -p icmp -s 10.4.0.60 -j ACCEPT
 iptables -A INPUT -p icmp -s 10.4.0.69 -j ACCEPT
 iptables -A INPUT -p icmp -j DROP
@@ -27,6 +28,7 @@ iptables -A INPUT -p icmp -j DROP
 # Completely open services
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT # DO NOT COMMENT OR MODIFY THIS. YOU WILL KICK YOURSELF OUT FROM THE SERVER (SSH)
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT # HTTP
+iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
 
 # established traffic inbound (allow return traffic back which was originated from your server)
 iptables -A INPUT -p ALL -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
