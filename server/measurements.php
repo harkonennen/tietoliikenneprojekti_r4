@@ -3,10 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$servername = "172.20.241.17";
-$username = "dbaccess_rw";
-$password = "salasana123";
-$dbname = "measurements";
+$servername = "DB_HOST";
+$username = "DB_USER";
+$password = "DB_PASS";
+$dbname = "DB_NAME";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
