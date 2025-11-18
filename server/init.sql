@@ -13,8 +13,3 @@ CREATE TABLE rawdata (
  sensorvalue_e FLOAT NOT NULL DEFAULT 0,
  sensorvalue_f VARCHAR(256) NOT NULL DEFAULT '0'
 );
-CREATE USER 'dbaccess_rw'@'%' IDENTIFIED WITH mysql_native_password BY '***********';
-GRANT ALL ON measurements.* TO 'dbaccess_rw'@'%';
-CREATE USER 'dbaccess_ro'@'%' IDENTIFIED WITH mysql_native_password BY '***********';
-GRANT SELECT ON measurements.* TO 'dbaccess_ro'@'%';
-FLUSH PRIVILEGES;
