@@ -3,6 +3,10 @@ import struct
 import mysql.connector
 from bleak import BleakClient, BleakScanner
 import sys
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 1. BLE-DEVICE CONFIQS (NRF5340)
 # NRF5340:n MAC-address/UUID
@@ -16,10 +20,10 @@ EXPECTED_LENGTH = struct.calcsize(STRUCT_FORMAT)
 
 # 2. MYSQL-DATABASE INFOS
 DB_CONFIG = {
-    'host': '172.20.241.17',
-    'user': 'dbaccess_rw',
-    'password': 'salasana123',
-    'database': 'measurements'
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASS'),
+    'database': os.getenv('DB_NAME')
 }
 # SQL-data saving
 SQL_INSERT = "INSERT INTO rawdata (sensor_direction, sensorvalue_x, sensorvalue_y, sensorvalue_z) VALUES (%s, %s, %s, %s)"
