@@ -7,6 +7,7 @@
 **OAMK Tieto- ja viestintätekniikka – 2. vuoden syksy**
 
 **Opiskelijat:**
+
 **@harkonennen** – Harri Härkönen  
 **@JoonasHeiskanen** – Joonas Heiskanen  
 
@@ -64,4 +65,5 @@ K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle
 
 ## Confusion matrix
 ![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)
+
 Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.
