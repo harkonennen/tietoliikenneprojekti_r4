@@ -18,6 +18,7 @@
 Projektin keskipisteenä on datan mittaaminen, siirtäminen ja käsittely eri teknologioilla. Kiihtyvyyssensoria mitataan nRF5340-alustalla, josta data siirretään BLE-yhteyttä  
 hyödyntäen ensin Raspberry Pille ja siitä TCP-yhteydellä Linux-palvelimelle. Dataa haetaan MySQL-tietokannasta HTTP-rajapinnalla ja syötetään Python-algoritmille päättelemään sensorin orientaatio.
 
+## Arkkitehtuurikuva
 ![Arkkitehtuurikuva](Documents/Pictures/Architectural_diagram.png)
 
 ---
