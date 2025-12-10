@@ -58,7 +58,7 @@ Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella
 ## K-means
 ![K-means](Documents/Pictures/K-means_result.png)
 <sub>*K-means 3D datapistekuvat eri vaiheista.*</sub>
-<sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.*</sub>
+<sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet keskipisteitä.*</sub>
 
 ### <small>Dataset</small>
 Tässä kuvassa näkyvät kiihtyvyysanturista mitatut alkuperäiset datapisteet kolmiulotteisessa avaruudessa.  
