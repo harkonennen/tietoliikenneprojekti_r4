@@ -60,14 +60,14 @@ Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella
 <sub>*K-means 3D datapistekuvat eri vaiheista.*</sub>
 <sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.*</sub>
 
-### Dataset
+## <small>Dataset</small>
 Tässä kuvassa näkyvät kiihtyvyysanturista mitatut alkuperäiset datapisteet kolmiulotteisessa avaruudessa.  
 Jokainen sininen piste vastaa yksittäistä mittausta X-, Y- ja Z-akseleilta. Yhdessä datapiste setissä on 100 mitattua näytettä.
 
-### Random Centroids
+## <small>Random Centroids</small>
 Arvotaan satunnaiset keskipisteet toisessa kuvassa.
 
-### Clustering Result
+## <small>Clustering Result</small>
 Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
 
 ---
