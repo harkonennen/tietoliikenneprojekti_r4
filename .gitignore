@@ -1,3 +1,4 @@
 phase4/build/
 notes/
 .env
+kmeans/venv/
