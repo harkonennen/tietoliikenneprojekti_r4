@@ -71,9 +71,8 @@ Arvotaan satunnaiset keskipisteet toisessa kuvassa.
 Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
 
 ---
-
+## Confusion matrix
 K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle. Laitteen kiihtyvyysanturilla mitataan 100 näytettä kuuteen eri suuntaan, ja jokainen mittaus luokitellaan valitsemalla lähin keskipiste euklidisen etäisyyden perusteella. Luokittelun tuloksista lasketaan confusion matrix, joka kuvaa luokittelijan tarkkuutta.  
 
-## Confusion matrix
 ![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)  
 <sub>*Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein*.</sub>
