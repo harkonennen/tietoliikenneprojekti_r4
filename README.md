@@ -47,7 +47,7 @@ Kiihtyvyyssensorista mitataan dataa NRF5340 alustalla. 3-akselinen kiihtyvyysens
 
 ## Datan käsittely
 
-NRF5340 lähettää Bluetooth Low Energy -yhteyden yli datapaketteja Raspberry 3:lle.. Raspberryllä pyörivä python-koodi pakkaa datan ja lähettää sen TCP-rajapinnan yli Linux-palvelimelle MySQL-tietokantaan, johon data tallennetaan.
+NRF5340 lähettää Bluetooth Low Energy -yhteyden yli datapaketteja Raspberry Pille. Raspberryllä pyörivä python-koodi pakkaa datan ja lähettää sen TCP-rajapinnan yli Linux-palvelimelle MySQL-tietokantaan, johon data tallennetaan.
 
 ---
 
