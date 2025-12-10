@@ -74,5 +74,5 @@ Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä dat
 K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle. Laitteen kiihtyvyysanturilla mitataan 100 näytettä kuuteen eri suuntaan, ja jokainen mittaus luokitellaan valitsemalla lähin keskipiste euklidisen etäisyyden perusteella. Luokittelun tuloksista lasketaan confusion matrix, joka kuvaa luokittelijan tarkkuutta.  
 
 ## Confusion matrix
-![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)
-\n<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
+![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)  
+<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
