@@ -1,4 +1,5 @@
 phase4/build/
+nrf5340/build/
 notes/
 .env
 kmeans/venv/
