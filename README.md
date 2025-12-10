@@ -53,12 +53,21 @@ NRF5340 lähettää Bluetooth Low Energy -yhteyden yli datapaketteja Raspberry 3
 
 ## Datan käyttö
 
-Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella CSV-tiedostoon. Python-koodi lukee tämän CSV-tiedoston ja vie tämän datan K-means algoritmin läpi. Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet, jonka jälkeen arvotaan satunnaiset sentroidit toisessa kuvassa. Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
+Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella CSV-tiedostoon. Python-koodi lukee tämän CSV-tiedoston ja vie tämän datan K-means algoritmin läpi.
 
 ## K-means
 ![K-means](Documents/Pictures/K-means_result.png)
-K-means 3D datapistekuvat eri vaiheista.  
-Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.
+<sub>K-means 3D datapistekuvat eri vaiheista.</sub>
+<sub>Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.</sub>
+
+## Dataset
+Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet.
+
+## Random Centroids
+Arvotaan satunnaiset sentroidit toisessa kuvassa.
+
+## Clustering Result
+Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
 
 ---
 
@@ -67,4 +76,4 @@ K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle
 ## Confusion matrix
 ![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)
 
-Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.
+<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
