@@ -61,7 +61,8 @@ Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella
 <sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.*</sub>
 
 ## Dataset
-Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet. Yhdessä datapiste setissä on 100 mitattua näytettä.
+Tässä kuvassa näkyvät kiihtyvyysanturista mitatut alkuperäiset datapisteet kolmiulotteisessa avaruudessa.  
+Jokainen sininen piste vastaa yksittäistä mittausta X-, Y- ja Z-akseleilta. Yhdessä datapiste setissä on 100 mitattua näytettä.
 
 ## Random Centroids
 Arvotaan satunnaiset keskipisteet toisessa kuvassa.
