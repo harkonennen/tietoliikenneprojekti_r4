@@ -67,8 +67,10 @@ Jokainen sininen piste vastaa yksittäistä mittausta X-, Y- ja Z-akseleilta. Yh
 ### <small>Random Centroids</small>
 Arvotaan satunnaiset keskipisteet toisessa kuvassa.
 
-### <small>Clustering Result</small>
+<small>**Clustering Result**</small>
 Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
+
+<h2 style="font-size: 1.2em; color: #444444;">Tämä on pienempi väliotsikko</h2>
 
 ---
 
