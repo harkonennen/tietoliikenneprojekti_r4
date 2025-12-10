@@ -57,8 +57,8 @@ Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella
 
 ## K-means
 ![K-means](Documents/Pictures/K-means_result.png)
-<sub>K-means 3D datapistekuvat eri vaiheista.</sub>
-<sub>Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.</sub>
+<sub>*K-means 3D datapistekuvat eri vaiheista.*</sub>
+<sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.*</sub>
 
 ## Dataset
 Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet.
@@ -75,4 +75,4 @@ K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle
 
 ## Confusion matrix
 ![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)  
-<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
+<sub>*Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein*.</sub>
