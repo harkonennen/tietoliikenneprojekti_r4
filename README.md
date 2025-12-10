@@ -55,7 +55,7 @@ NRF5340 lähettää Bluetooth Low Energy -yhteyden yli datapaketteja Raspberry P
 
 Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella CSV-tiedostoon. Python-koodi lukee tämän CSV-tiedoston ja vie tämän datan K-means algoritmin läpi.
 
-## K-means
+## K-means algoritmi
 ![K-means](Documents/Pictures/K-means_result.png)
 <sub>*K-means 3D datapistekuvat eri vaiheista.*</sub>
 <sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet keskipisteitä.*</sub>
