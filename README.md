@@ -61,10 +61,10 @@ Data haetaan HTTP-yhteyden yli MySQL-tietokannasta ja tallennetaan tietokoneella
 <sub>*Siniset pallot kuvastavat datapisteitä ja punaiset tähdet sentroideja.*</sub>
 
 ## Dataset
-Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet.
+Dataset kuva osiossa mallinnetaan CSV-tiedostosta luetut datapisteet. Yhdessä datapiste setissä on 100 mitattua näytettä.
 
 ## Random Centroids
-Arvotaan satunnaiset sentroidit toisessa kuvassa.
+Arvotaan satunnaiset keskipisteet toisessa kuvassa.
 
 ## Clustering Result
 Viimeisessä kuvassa python-koodi on toteutettu siten, että lähimmäisenä datapisteitä olevat sentroidit voittavat lähimmäiset datapisteet itselleen ja siirtyy kyseisten datapisteiden keskelle. Tuloksena saadaan tieto, mihin päin sensori osoittaa tai mikä on sen suunta.
