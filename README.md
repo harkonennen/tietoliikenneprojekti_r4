@@ -75,4 +75,4 @@ K-means-algoritmin laskemat kuusi keskipistettä siirretään nRF5340-laitteelle
 
 ## Confusion matrix
 ![Confusion_matrix](Documents/Pictures/Confusion_matrix.png)
-<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
+\n<sub>Esimerkkituloksena saatu confusion matrix, jossa K-means-luokittelija tunnistaa kaikki suunnat oikein.</sub>
